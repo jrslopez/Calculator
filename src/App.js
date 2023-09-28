@@ -1,14 +1,21 @@
 import "./styles.css"
+import { useReducer } from "react"
+
+const reducer = (state, { type, payload }) => {}
 
 function App() {
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
+    reducer,
+    {}
+  )
   return (
     <div className="calculator-grid">
       hello world!
       <div className="output">
-        below world!
+        Output here!
         <div className="previous-operand">
-          belooooooooowwww world!
-          <div className="current-operand">123123</div>
+          {previousOperand} {operation}
+          <div className="current-operand">{currentOperand}</div>
         </div>
       </div>
       <button className="span-two" onClick={() => console.log("it's working")}>
