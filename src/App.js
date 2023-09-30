@@ -1,13 +1,30 @@
 import "./styles.css"
 import { useReducer } from "react"
 
-const reducer = (state, { type, payload }) => {}
+const ACTIONS = {
+  ADD_DIGIT: "add-digit",
+  CHOOSE_OPERATION: "choose-operation",
+  CLEAR: "clear",
+  DELETE_DIGIT: "delete-digit",
+  EVALUATE: "evaluate",
+}
+
+const reducer = (state, { type, payload }) => {
+  switch (type) {
+    case ACTIONS.ADD_DIGIT:
+      return {
+        ...state,
+        currentOperand: `${currentOperand || ""}${payload.digit}`,
+      }
+  }
+}
 
 function App() {
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
     reducer,
     {}
   )
+  dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: 1 } })
   return (
     <div className="calculator-grid">
       hello world!
