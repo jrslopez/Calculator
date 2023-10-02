@@ -1,7 +1,8 @@
 import "./styles.css"
+import DigitButton from "./DigitButton"
 import { useReducer } from "react"
 
-const ACTIONS = {
+export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   CHOOSE_OPERATION: "choose-operation",
   CLEAR: "clear",
